@@ -1,0 +1,442 @@
+[
+  {
+    "product_id": "PROD001",
+    "name": "CustIQ Basic Savings Account",
+    "category": "CASA",
+    "min_age": 18,
+    "max_age": 75,
+    "min_income": 120000.00,
+    "description": "A zero-balance savings account with free digital banking, UPI, and debit card. Ideal for salaried individuals beginning their banking journey.",
+    "interest_rate": 3.5,
+    "features": [
+      "Zero minimum balance",
+      "Free RuPay debit card",
+      "Free UPI & IMPS transactions",
+      "Free monthly account statement",
+      "Up to 5 free ATM transactions/month"
+    ]
+  },
+  {
+    "product_id": "PROD002",
+    "name": "CustIQ Premium Savings Account",
+    "category": "CASA",
+    "min_age": 21,
+    "max_age": 75,
+    "min_income": 500000.00,
+    "description": "High-value savings account with preferential interest rate, relationship manager, and exclusive lifestyle benefits. Suited for Affluent and HNI customers.",
+    "interest_rate": 5.0,
+    "features": [
+      "Minimum balance ₹1,00,000",
+      "Dedicated relationship manager",
+      "Premium Visa Infinite debit card",
+      "Unlimited free ATM transactions worldwide",
+      "Complimentary airport lounge access (4/year)",
+      "Preferential FD rates",
+      "Free NEFT/RTGS/IMPS transactions"
+    ]
+  },
+  {
+    "product_id": "PROD003",
+    "name": "CustIQ Current Account (Business)",
+    "category": "CASA",
+    "min_age": 21,
+    "max_age": 70,
+    "min_income": 1000000.00,
+    "description": "Current account designed for SMEs and business owners with high transaction volumes, overdraft facility, and dedicated business banking support.",
+    "interest_rate": null,
+    "features": [
+      "Minimum balance ₹50,000",
+      "Overdraft facility up to ₹10 lakhs",
+      "Free NEFT/RTGS/IMPS",
+      "Multi-city cheque facility",
+      "Business debit card with ₹5 lakh daily limit",
+      "Business internet banking with bulk payment",
+      "Free cash deposit up to ₹5 lakhs/month"
+    ]
+  },
+  {
+    "product_id": "PROD004",
+    "name": "CustIQ NRI Savings Account",
+    "category": "CASA",
+    "min_age": 21,
+    "max_age": 75,
+    "min_income": 600000.00,
+    "description": "Non-Resident Indian savings account in INR with full repatriability of interest earned, tax exemption on interest, and international banking convenience.",
+    "interest_rate": 4.5,
+    "features": [
+      "Full interest repatriation",
+      "Tax-free interest income in India",
+      "Free international fund transfers",
+      "Multi-currency forex card",
+      "NRI relationship manager",
+      "Online account opening for NRIs"
+    ]
+  },
+  {
+    "product_id": "PROD005",
+    "name": "CustIQ Home Loan",
+    "category": "Loan",
+    "min_age": 23,
+    "max_age": 65,
+    "min_income": 360000.00,
+    "description": "Home purchase or construction loan with competitive floating interest rates, flexible tenure up to 30 years, and balance transfer facility.",
+    "interest_rate": 8.5,
+    "features": [
+      "Loan amount up to ₹10 crores",
+      "Tenure up to 360 months",
+      "Floating & fixed rate options",
+      "Free legal and technical evaluation",
+      "Balance transfer facility",
+      "No prepayment penalty on floating rate loans",
+      "PMAY subsidy eligible",
+      "Doorstep documentation service"
+    ]
+  },
+  {
+    "product_id": "PROD006",
+    "name": "CustIQ Personal Loan",
+    "category": "Loan",
+    "min_age": 21,
+    "max_age": 60,
+    "min_income": 240000.00,
+    "description": "Instant collateral-free personal loan for salaried and self-employed individuals. Disbursal within 24 hours for pre-approved customers.",
+    "interest_rate": 12.5,
+    "features": [
+      "Loan amount ₹50,000 to ₹15 lakhs",
+      "Tenure 12 to 60 months",
+      "No collateral required",
+      "Instant disbursal for pre-approved customers",
+      "Flexible repayment via ECS/NACH",
+      "Part prepayment allowed after 6 months"
+    ]
+  },
+  {
+    "product_id": "PROD007",
+    "name": "CustIQ Car Loan",
+    "category": "Loan",
+    "min_age": 21,
+    "max_age": 65,
+    "min_income": 300000.00,
+    "description": "New and used car financing with on-the-spot approval, tie-ups with all major dealerships, and attractive interest rates for salaried professionals.",
+    "interest_rate": 9.0,
+    "features": [
+      "Finance up to 90% of car value",
+      "Tenure up to 84 months",
+      "Approved at dealership",
+      "Tie-up with 1000+ dealers nationwide",
+      "Insurance bundling option",
+      "No foreclosure charges after 1 year"
+    ]
+  },
+  {
+    "product_id": "PROD008",
+    "name": "CustIQ Education Loan",
+    "category": "Loan",
+    "min_age": 18,
+    "max_age": 35,
+    "min_income": 0.00,
+    "description": "Education loan covering tuition, hostel, books, and living expenses for undergraduate, postgraduate, and professional courses in India and abroad.",
+    "interest_rate": 10.5,
+    "features": [
+      "Loan up to ₹1.5 crores for abroad studies",
+      "Loan up to ₹20 lakhs for India studies",
+      "Moratorium period during course + 6 months",
+      "No collateral for loans up to ₹7.5 lakhs",
+      "Tax benefit on interest paid (Sec 80E)",
+      "Covers tuition, hostel, laptop, travel expenses",
+      "Repayment tenure up to 15 years"
+    ]
+  },
+  {
+    "product_id": "PROD009",
+    "name": "CustIQ Fixed Deposit — Standard",
+    "category": "Wealth",
+    "min_age": 18,
+    "max_age": 100,
+    "min_income": 0.00,
+    "description": "Guaranteed returns fixed deposit with tenures from 7 days to 10 years. Senior citizen rate is 0.50% higher than the standard rate.",
+    "interest_rate": 7.25,
+    "features": [
+      "Tenure from 7 days to 10 years",
+      "Additional 0.50% for senior citizens",
+      "Auto-renewal option",
+      "Loan against FD up to 90% of value",
+      "Premature withdrawal allowed (with penalty)",
+      "Quarterly/monthly interest payout option",
+      "Eligible for tax saver 5-year FD (80C deduction)"
+    ]
+  },
+  {
+    "product_id": "PROD010",
+    "name": "CustIQ Tax Saver Fixed Deposit",
+    "category": "Wealth",
+    "min_age": 18,
+    "max_age": 100,
+    "min_income": 0.00,
+    "description": "Five-year lock-in FD qualifying for Section 80C tax deduction up to ₹1.5 lakhs per annum. Higher interest rate than standard FD.",
+    "interest_rate": 7.5,
+    "features": [
+      "Section 80C deduction up to ₹1.5 lakhs",
+      "Fixed tenure of 5 years (lock-in)",
+      "No premature withdrawal",
+      "Additional 0.50% for senior citizens",
+      "Interest taxable as per income slab",
+      "Joint account allowed (only first holder gets 80C benefit)"
+    ]
+  },
+  {
+    "product_id": "PROD011",
+    "name": "CustIQ Mutual Fund — SIP Gateway",
+    "category": "Wealth",
+    "min_age": 18,
+    "max_age": 80,
+    "min_income": 120000.00,
+    "description": "Systematic Investment Plan gateway offering curated basket of top-performing equity, debt, and hybrid mutual funds with a minimum SIP of ₹500/month.",
+    "interest_rate": null,
+    "features": [
+      "SIP from ₹500/month",
+      "Curated fund recommendations via AI",
+      "Direct plan — zero commission",
+      "Easy SIP pause/stop facility",
+      "Instant redemption for liquid funds",
+      "Mobile app tracking with portfolio analytics",
+      "Auto-step-up SIP option"
+    ]
+  },
+  {
+    "product_id": "PROD012",
+    "name": "CustIQ Life Insurance — Term Plan",
+    "category": "Insurance",
+    "min_age": 18,
+    "max_age": 65,
+    "min_income": 180000.00,
+    "description": "Pure term life insurance offering high coverage at low premiums. Coverage up to ₹5 crores with critical illness and accidental disability riders.",
+    "interest_rate": null,
+    "features": [
+      "Coverage up to ₹5 crores",
+      "Premium starting ₹600/month for ₹1 crore cover",
+      "Term up to age 75",
+      "Critical illness rider available",
+      "Accidental disability benefit rider",
+      "Return of premium option",
+      "Tax deduction under Sec 80C & 80D",
+      "Online issuance in 30 minutes"
+    ]
+  },
+  {
+    "product_id": "PROD013",
+    "name": "CustIQ Health Insurance — Family Floater",
+    "category": "Insurance",
+    "min_age": 18,
+    "max_age": 65,
+    "min_income": 240000.00,
+    "description": "Comprehensive family health insurance covering hospitalisation, day-care procedures, maternity, and OPD. Cashless network at 10,000+ hospitals.",
+    "interest_rate": null,
+    "features": [
+      "Sum insured ₹5 lakh to ₹1 crore",
+      "Floater cover for self, spouse, 2 children",
+      "Cashless at 10,000+ hospitals",
+      "No room rent sub-limit",
+      "Maternity benefit from day 1",
+      "Annual health check-up included",
+      "No claim bonus up to 100%",
+      "Tax deduction under Sec 80D"
+    ]
+  },
+  {
+    "product_id": "PROD014",
+    "name": "CustIQ Platinum Credit Card",
+    "category": "Card",
+    "min_age": 21,
+    "max_age": 65,
+    "min_income": 360000.00,
+    "description": "Lifestyle credit card with 5X reward points on dining and travel, complimentary lounge access, fuel surcharge waiver, and comprehensive travel insurance.",
+    "interest_rate": 42.0,
+    "features": [
+      "5X reward points on dining & travel",
+      "2X reward points on all other spends",
+      "Complimentary domestic lounge access (8/year)",
+      "1% fuel surcharge waiver",
+      "Comprehensive travel insurance up to ₹1 crore",
+      "Zero lost card liability",
+      "Welcome voucher worth ₹2,000",
+      "EMI conversion on purchases above ₹3,000",
+      "Annual fee waived on ₹1.5 lakh annual spend"
+    ]
+  },
+  {
+    "product_id": "PROD015",
+    "name": "CustIQ PPF Account",
+    "category": "Wealth",
+    "min_age": 18,
+    "max_age": 100,
+    "min_income": 0.00,
+    "description": "Public Provident Fund account with government-backed returns, full tax exemption under EEE category, and 15-year lock-in period with partial withdrawal from year 7.",
+    "interest_rate": 7.1,
+    "features": [
+      "Government-guaranteed returns",
+      "EEE tax status (Exempt-Exempt-Exempt)",
+      "Annual investment ₹500 to ₹1.5 lakhs",
+      "15-year tenure, extendable in 5-year blocks",
+      "Partial withdrawal from 7th year",
+      "Loan against PPF from 3rd to 6th year",
+      "Joint accounts not allowed",
+      "Section 80C deduction on contributions"
+    ]
+  },
+  {
+    "product_id": "PROD016",
+    "name": "CustIQ HDB / Public Housing Loan",
+    "category": "Loan",
+    "region": "APAC",
+    "min_age": 21,
+    "max_age": 65,
+    "min_income": 540000.00,
+    "description": "Government-subsidised housing loan for HDB flat purchase in Singapore. Pegged to CPF OA rate + 0.1%, one of the lowest mortgage rates available.",
+    "interest_rate": 2.6,
+    "features": [
+      "CPF OA savings can be used for repayment",
+      "Up to 80% LTV for 2nd loan",
+      "Tenure up to 25 years",
+      "No lock-in period",
+      "Concessionary rate for eligible applicants",
+      "TDSR capped at 55%"
+    ]
+  },
+  {
+    "product_id": "PROD017",
+    "name": "CustIQ Superannuation Linked Savings (AUS)",
+    "category": "Wealth",
+    "region": "APAC",
+    "min_age": 18,
+    "max_age": 67,
+    "min_income": 0.00,
+    "description": "Australian superannuation-linked savings product offering concessional tax rates on contributions. Employer contributes 11% of ordinary time earnings under SG legislation.",
+    "interest_rate": null,
+    "features": [
+      "11% employer Super Guarantee contribution",
+      "Concessional tax rate 15% on contributions",
+      "First Home Super Saver Scheme eligible",
+      "Income stream on retirement",
+      "Death & TPD insurance included",
+      "ATO registered APRA fund"
+    ]
+  },
+  {
+    "product_id": "PROD018",
+    "name": "CustIQ Stocks & Shares ISA (UK)",
+    "category": "Wealth",
+    "region": "EMEA",
+    "min_age": 18,
+    "max_age": 100,
+    "min_income": 0.00,
+    "description": "UK Individual Savings Account wrapper for equity and fund investments. Up to £20,000 annual allowance with zero tax on gains, dividends, and interest.",
+    "interest_rate": null,
+    "features": [
+      "£20,000 annual ISA allowance",
+      "Zero capital gains tax on returns",
+      "Zero income tax on dividends/interest",
+      "Access to 3,000+ global equities & ETFs",
+      "Flexible ISA — withdraw and re-subscribe in same tax year",
+      "FSCS protected up to £85,000"
+    ]
+  },
+  {
+    "product_id": "PROD019",
+    "name": "CustIQ Islamic Home Finance (Murabaha)",
+    "category": "Loan",
+    "region": "EMEA",
+    "min_age": 21,
+    "max_age": 65,
+    "min_income": 2270000.00,
+    "description": "Sharia-compliant home finance using Murabaha structure. No interest charged; bank purchases property and sells to customer at an agreed profit margin. Approved by Sharia Supervisory Board.",
+    "interest_rate": 4.5,
+    "features": [
+      "Sharia Supervisory Board certified",
+      "Murabaha cost-plus-profit structure",
+      "No Riba (interest) charged",
+      "Finance up to 80% of property value",
+      "Tenure up to 25 years",
+      "Applicable for UAE/Malaysia/Saudi customers",
+      "Early settlement allowed"
+    ]
+  },
+  {
+    "product_id": "PROD020",
+    "name": "CustIQ CPF Investment Account (SG)",
+    "category": "Wealth",
+    "region": "APAC",
+    "min_age": 18,
+    "max_age": 55,
+    "min_income": 0.00,
+    "description": "Singapore Central Provident Fund investment scheme allowing CPF Ordinary Account savings above S$20,000 to be invested in approved unit trusts, ETFs, and government bonds.",
+    "interest_rate": 2.5,
+    "features": [
+      "Invest CPF OA savings above S$20,000",
+      "Approved by CPF Board (CPFIS)",
+      "Access to MAS-regulated unit trusts",
+      "Government bond and ETF options",
+      "Withdrawable at age 55",
+      "Tax-free capital gains"
+    ]
+  },
+  {
+    "product_id": "PROD021",
+    "name": "CustIQ Takaful Family Protection (Islamic)",
+    "category": "Insurance",
+    "region": "APAC",
+    "min_age": 18,
+    "max_age": 60,
+    "min_income": 0.00,
+    "description": "Sharia-compliant family takaful plan providing death, total permanent disability, and critical illness coverage. Structured on Wakalah (agency) model with surplus sharing.",
+    "interest_rate": null,
+    "features": [
+      "Sharia-compliant Wakalah model",
+      "Death & TPD lump sum payout",
+      "Critical illness (36 conditions) rider",
+      "Annual surplus distribution to participants",
+      "Premium holiday facility",
+      "Applicable for Muslim and non-Muslim customers in MY/UAE/SA"
+    ]
+  },
+  {
+    "product_id": "PROD022",
+    "name": "CustIQ SEPA Business Account (EU)",
+    "category": "CASA",
+    "region": "SEPA",
+    "min_age": 18,
+    "max_age": 80,
+    "min_income": 909000.00,
+    "description": "Euro-denominated business current account with full SEPA payment suite including instant SEPA Credit Transfer (SCT Inst) and SEPA Direct Debit mandates. IBAN-based account suitable for EU/EEA businesses.",
+    "interest_rate": 0.5,
+    "features": [
+      "Full SEPA Credit Transfer & Direct Debit",
+      "SEPA Instant (SCT Inst) in under 10 seconds",
+      "Dedicated IBAN (DE/EU)",
+      "Multi-user business online banking",
+      "ISO 20022 XML file uploads for bulk payments",
+      "VAT payment scheduling",
+      "PSD2 open banking APIs"
+    ]
+  },
+  {
+    "product_id": "PROD023",
+    "name": "CustIQ Global Multi-Currency Account",
+    "category": "CASA",
+    "region": "Global",
+    "min_age": 18,
+    "max_age": 80,
+    "min_income": 0.00,
+    "description": "Multi-currency transactional account supporting 12+ currencies in a single account number. Ideal for frequent travellers, NRIs, and globally mobile professionals across APAC/EMEA.",
+    "interest_rate": 1.5,
+    "features": [
+      "Hold 12+ currencies simultaneously",
+      "Real-time FX conversion at interbank rates",
+      "Free international SWIFT transfers (first 3/month)",
+      "Mastercard World Debit Card",
+      "Mobile app with live exchange rates",
+      "Linked to Finacle Forex module",
+      "No foreign transaction fees on card spend"
+    ]
+  }
+]
