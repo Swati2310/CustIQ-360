@@ -30,7 +30,7 @@ def test_list_customers_default(client):
     r = client.get("/api/customers")
     assert r.status_code == 200
     data = r.json()
-    assert data["total"] == 90
+    assert data["total"] == 95
     assert data["page"] == 1
     assert len(data["customers"]) == 20
 

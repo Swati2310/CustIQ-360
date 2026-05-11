@@ -1,7 +1,11 @@
 import axios from 'axios'
 
+// In dev: Vite proxies /api → localhost:8000 (vite.config.js)
+// In production: set VITE_API_BASE_URL to your Render backend URL
+const BASE = import.meta.env.VITE_API_BASE_URL || ''
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: `${BASE}/api`,
   headers: { 'Content-Type': 'application/json' },
 })
 
@@ -40,7 +44,7 @@ export const sendChat = (message, customerId = null, history = []) => {
   if (customerId) params.set('customer_id', customerId)
   if (history.length > 0) params.set('history', JSON.stringify(history))
 
-  return fetch(`/api/chat?${params.toString()}`, {
+  return fetch(`${BASE}/api/chat?${params.toString()}`, {
     method: 'GET',
     headers: { Accept: 'text/event-stream' },
   })
@@ -50,7 +54,7 @@ export const sendChatPost = async (message, customerId = null, history = []) => 
   const body = { message, history }
   if (customerId) body.customer_id = customerId
 
-  return fetch('/api/chat', {
+  return fetch(`${BASE}/api/chat`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

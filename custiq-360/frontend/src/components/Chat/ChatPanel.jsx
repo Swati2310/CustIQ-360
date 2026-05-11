@@ -1,6 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { Send, Bot, Trash2, Sparkles } from 'lucide-react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
+import { Send, Bot, Trash2, Sparkles, Mic, MicOff } from 'lucide-react'
 import useChat from '../../hooks/useChat.js'
+import { useVoice } from '../../hooks/useVoice.js'
 import MessageBubble from './MessageBubble.jsx'
 import clsx from 'clsx'
 
@@ -16,7 +17,27 @@ export default function ChatPanel({ customerId }) {
   const [input, setInput] = useState('')
   const messagesEndRef = useRef(null)
   const inputRef = useRef(null)
-  const textareaRef = useRef(null)
+
+  const handleVoiceResult = useCallback((text) => {
+    setInput(text)
+    // auto-send after a short pause so user sees what was transcribed
+    setTimeout(() => {
+      if (text.trim()) {
+        sendMessage(text.trim())
+        setInput('')
+      }
+    }, 800)
+  }, [sendMessage])
+
+  const { isListening, transcript, error: voiceError, isSupported: voiceSupported, start: startVoice, stop: stopVoice } = useVoice({
+    onResult: handleVoiceResult,
+    lang: 'en-US',
+  })
+
+  // Show interim transcript in input while listening
+  useEffect(() => {
+    if (isListening && transcript) setInput(transcript)
+  }, [transcript, isListening])
 
   // Auto-scroll
   useEffect(() => {
@@ -125,10 +146,23 @@ export default function ChatPanel({ customerId }) {
         </div>
       )}
 
-      {/* Error */}
-      {error && (
+      {/* Errors */}
+      {(error || voiceError) && (
         <div className="mx-4 mb-2 px-3 py-2 bg-red-50 border border-red-200 rounded-lg text-xs text-red-700 flex-shrink-0">
-          {error}
+          {error || voiceError}
+        </div>
+      )}
+
+      {/* Voice listening indicator */}
+      {isListening && (
+        <div className="mx-4 mb-2 flex items-center gap-2 px-3 py-2 bg-red-50 border border-red-200 rounded-xl flex-shrink-0 animate-fade-in">
+          <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse flex-shrink-0" />
+          <p className="text-xs text-red-700 font-medium flex-1 truncate">
+            {transcript ? `"${transcript}"` : 'Listening… speak your question'}
+          </p>
+          <button onClick={stopVoice} className="text-red-500 hover:text-red-700 flex-shrink-0">
+            <MicOff className="w-3.5 h-3.5" />
+          </button>
         </div>
       )}
 
@@ -140,18 +174,41 @@ export default function ChatPanel({ customerId }) {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Ask about this customer..."
+            placeholder={isListening ? 'Listening…' : 'Ask about this customer…'}
             rows={1}
             disabled={isStreaming}
             className={clsx(
               'flex-1 resize-none border rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all leading-relaxed',
               'min-h-[40px] max-h-[120px]',
-              isStreaming
-                ? 'bg-gray-50 border-gray-200 text-gray-400 cursor-not-allowed'
-                : 'bg-white border-gray-300'
+              isListening
+                ? 'bg-red-50 border-red-200 text-gray-700'
+                : isStreaming
+                  ? 'bg-gray-50 border-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-white border-gray-300'
             )}
             style={{ fieldSizing: 'content' }}
           />
+
+          {/* Mic button */}
+          {voiceSupported && (
+            <button
+              onClick={isListening ? stopVoice : startVoice}
+              disabled={isStreaming}
+              title={isListening ? 'Stop listening' : 'Speak your question'}
+              className={clsx(
+                'w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-all',
+                isListening
+                  ? 'bg-red-500 hover:bg-red-600 text-white shadow-md animate-pulse'
+                  : isStreaming
+                    ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
+                    : 'bg-gray-100 hover:bg-primary-50 hover:text-primary-600 text-gray-400'
+              )}
+            >
+              {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
+            </button>
+          )}
+
+          {/* Send button */}
           <button
             onClick={handleSend}
             disabled={!input.trim() || isStreaming}
@@ -170,7 +227,9 @@ export default function ChatPanel({ customerId }) {
           </button>
         </div>
         <p className="text-xs text-gray-400 mt-1.5 text-center">
-          Press Enter to send &bull; Shift+Enter for newline
+          {voiceSupported
+            ? 'Enter to send · Shift+Enter newline · 🎤 speak your question'
+            : 'Enter to send · Shift+Enter for newline'}
         </p>
       </div>
     </div>

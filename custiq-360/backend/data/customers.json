@@ -10242,7 +10242,7 @@
     "currency": "INR",
     "occupation": "HDFC Life Insurance Co. Ltd.",
     "annual_income": 616200.0,
-    "age": null
+    "age": 34
   },
   {
     "customer_id": "CUST0092",
@@ -10292,8 +10292,8 @@
     "region": "South Asia",
     "currency": "INR",
     "occupation": "",
-    "annual_income": 0.0,
-    "age": null
+    "annual_income": 480000.0,
+    "age": 29
   },
   {
     "customer_id": "CUST0093",
@@ -10307,7 +10307,7 @@
     "currency": "AED",
     "region": "EMEA",
     "occupation": "",
-    "annual_income": 0,
+    "annual_income": 2700000.0,
     "risk_category": "Medium",
     "relationship_since": "2024-03-10",
     "kyc": {
@@ -10343,7 +10343,8 @@
       }
     ],
     "loans": [],
-    "wealth": []
+    "wealth": [],
+    "age": 41
   },
   {
     "customer_id": "CUST0094",
@@ -10357,7 +10358,7 @@
     "currency": "SGD",
     "region": "APAC",
     "occupation": "",
-    "annual_income": 0,
+    "annual_income": 3900000.0,
     "risk_category": "Low",
     "relationship_since": "2024-02-20",
     "kyc": {
@@ -10386,14 +10387,15 @@
       {
         "account_id": "ACC0094A",
         "type": "Savings",
-        "balance": 42000.0,
+        "balance": 625000.0,
         "branch": "Singapore - Orchard",
         "status": "Active",
         "transactions": []
       }
     ],
     "loans": [],
-    "wealth": []
+    "wealth": [],
+    "age": 33
   },
   {
     "customer_id": "CUST0095",
@@ -10407,13 +10409,13 @@
     "currency": "GBP",
     "region": "SEPA",
     "occupation": "",
-    "annual_income": 0,
+    "annual_income": 5250000.0,
     "risk_category": "Low",
     "relationship_since": "2024-04-05",
     "kyc": {
       "aadhaar": {
-        "type": "Passport",
-        "number": "PENDING",
+        "type": "National Insurance Number",
+        "number": "QQ 12 34 56 A",
         "verified": false,
         "expiry": null
       },
@@ -10436,13 +10438,14 @@
       {
         "account_id": "ACC0095A",
         "type": "Savings",
-        "balance": 8500.0,
+        "balance": 526315.0,
         "branch": "London - Canary Wharf",
         "status": "Active",
         "transactions": []
       }
     ],
     "loans": [],
-    "wealth": []
+    "wealth": [],
+    "age": 45
   }
 ]

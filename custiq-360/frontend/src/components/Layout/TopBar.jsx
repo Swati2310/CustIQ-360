@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Search, Bell, X, User } from 'lucide-react'
+import { Search, Bell, X, User, LogOut, Mic, MicOff } from 'lucide-react'
 import { searchCustomers, getCustomers, getAlerts } from '../../utils/api.js'
 import { getInitials, segmentColor } from '../../utils/format.js'
 import { useCurrency } from '../../context/CurrencyContext.jsx'
+import { useAuth } from '../../context/AuthContext.jsx'
+import { useVoice } from '../../hooks/useVoice.js'
 import clsx from 'clsx'
 
 function useDebounce(value, delay) {
@@ -19,7 +21,13 @@ export default function TopBar() {
   const navigate = useNavigate()
   const location = useLocation()
   const { currency } = useCurrency()
+  const { user, logout } = useAuth()
   const showCurrencyBadge = location.pathname !== '/'
+
+  const { isListening: voiceSearching, isSupported: voiceSupported, start: startVoice, stop: stopVoice } = useVoice({
+    onResult: (text) => { setQuery(text); setShowDropdown(true) },
+    lang: 'en-US',
+  })
 
   const [query, setQuery] = useState('')
   const [results, setResults] = useState([])
@@ -106,7 +114,7 @@ export default function TopBar() {
   }
 
   return (
-    <header className="h-14 bg-white border-b border-gray-200 flex items-center px-6 gap-4 flex-shrink-0 z-30">
+    <header className="h-14 glass border-b border-gray-100 flex items-center px-6 gap-4 flex-shrink-0 z-30 shadow-sm animate-fade-in">
       {/* Search */}
       <div className="flex-1 max-w-xl relative" ref={dropdownRef}>
         <div className="relative">
@@ -117,22 +125,42 @@ export default function TopBar() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onFocus={handleFocus}
-            placeholder="Search customers by name, phone or email..."
-            className="w-full pl-10 pr-8 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-gray-50 focus:bg-white transition-all"
+            placeholder={voiceSearching ? 'Listening…' : 'Search customers by name, phone or email…'}
+            className={clsx(
+              'w-full pl-10 py-2 text-sm border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all',
+              voiceSearching
+                ? 'pr-8 border-red-300 bg-red-50'
+                : query ? 'pr-14' : 'pr-8',
+              !voiceSearching && 'bg-gray-50 focus:bg-white'
+            )}
           />
-          {query && (
-            <button
-              onClick={clearSearch}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-            >
-              <X className="w-3.5 h-3.5" />
-            </button>
-          )}
+          {/* Voice / Clear buttons */}
+          <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
+            {voiceSupported && (
+              <button
+                onClick={voiceSearching ? stopVoice : startVoice}
+                title={voiceSearching ? 'Stop' : 'Voice search'}
+                className={clsx(
+                  'w-6 h-6 rounded-lg flex items-center justify-center transition-all',
+                  voiceSearching
+                    ? 'text-red-500 animate-pulse'
+                    : 'text-gray-400 hover:text-primary-600'
+                )}
+              >
+                {voiceSearching ? <MicOff className="w-3.5 h-3.5" /> : <Mic className="w-3.5 h-3.5" />}
+              </button>
+            )}
+            {query && !voiceSearching && (
+              <button onClick={clearSearch} className="text-gray-400 hover:text-gray-600">
+                <X className="w-3.5 h-3.5" />
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Dropdown */}
         {showDropdown && (
-          <div className="absolute top-full mt-1 left-0 right-0 bg-white rounded-xl border border-gray-200 shadow-lg z-50 overflow-hidden">
+          <div className="absolute top-full mt-1 left-0 right-0 bg-white rounded-2xl border border-gray-100 shadow-xl z-50 overflow-hidden animate-scale-in">
             {searching ? (
               <div className="px-4 py-3 text-sm text-gray-500 flex items-center gap-2">
                 <div className="w-3.5 h-3.5 border-2 border-primary-500 border-t-transparent rounded-full animate-spin" />
@@ -208,15 +236,22 @@ export default function TopBar() {
           )}
         </button>
 
-        {/* RM Portal label */}
+        {/* RM identity + logout */}
         <div className="flex items-center gap-2 pl-3 border-l border-gray-200">
-          <div className="w-7 h-7 rounded-full bg-primary-600 flex items-center justify-center">
-            <User className="w-4 h-4 text-white" />
+          <div className="w-7 h-7 rounded-full bg-primary-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+            {user ? getInitials(user.name) : <User className="w-4 h-4" />}
           </div>
           <div className="hidden md:block">
-            <p className="text-xs font-semibold text-gray-700 leading-tight">RM Portal</p>
-            <p className="text-xs text-gray-400 leading-tight">Relationship Manager</p>
+            <p className="text-xs font-semibold text-gray-700 leading-tight">{user?.name || 'RM Portal'}</p>
+            <p className="text-xs text-gray-400 leading-tight">{user?.id} &bull; {user?.country}</p>
           </div>
+          <button
+            onClick={logout}
+            title="Sign out"
+            className="ml-1 p-1.5 rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors"
+          >
+            <LogOut className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </header>

@@ -6,8 +6,14 @@ import Dashboard from './pages/Dashboard.jsx'
 import CustomerView from './pages/CustomerView.jsx'
 import SimulatorPage from './pages/SimulatorPage.jsx'
 import AlertsPage from './pages/AlertsPage.jsx'
+import LoginPage from './pages/LoginPage.jsx'
+import { AuthProvider, useAuth } from './context/AuthContext.jsx'
 
-export default function App() {
+function AppShell() {
+  const { user } = useAuth()
+
+  if (!user) return <LoginPage />
+
   return (
     <div className="flex h-screen overflow-hidden bg-gray-50">
       <Sidebar />
@@ -23,5 +29,13 @@ export default function App() {
         </main>
       </div>
     </div>
+  )
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <AppShell />
+    </AuthProvider>
   )
 }

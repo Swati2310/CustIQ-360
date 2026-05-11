@@ -15,12 +15,12 @@ def aggregator():
 
 
 def test_aggregator_loads_all_customers(aggregator):
-    assert aggregator.count() == 90
+    assert aggregator.count() == 95
 
 
 def test_get_all_customers_returns_summaries(aggregator):
     summaries = aggregator.get_all_customers()
-    assert len(summaries) == 90
+    assert len(summaries) == 95
     for s in summaries:
         assert "customer_id" in s
         assert "name" in s
@@ -53,7 +53,7 @@ def test_search_by_uk_phone(aggregator):
 
 def test_search_empty_returns_all(aggregator):
     results = aggregator.search_customers("")
-    assert len(results) == 90
+    assert len(results) == 95
 
 
 def test_search_no_results(aggregator):
@@ -106,9 +106,9 @@ def test_all_full_customers_have_country(aggregator):
 def test_country_distribution(aggregator):
     from collections import Counter
     dist = Counter(c.country for c in aggregator.all_customers_full())
-    assert dist["IN"] == 15
-    assert dist["SG"] == 10
-    assert dist["GB"] == 10
+    assert dist["IN"] == 17
+    assert dist["SG"] == 11
+    assert dist["GB"] == 11
     assert dist["DE"] == 8
     assert dist["JP"] == 8
     assert dist["AU"] == 8
@@ -116,12 +116,12 @@ def test_country_distribution(aggregator):
 
 def test_reload_does_not_crash(aggregator):
     aggregator.reload()
-    assert aggregator.count() == 90
+    assert aggregator.count() == 95
 
 
 def test_summary_includes_city(aggregator):
     summaries = aggregator.get_all_customers()
     sg = [s for s in summaries if s.get("country") == "SG"]
-    assert len(sg) == 10
+    assert len(sg) == 11
     for s in sg:
         assert s.get("city") is not None

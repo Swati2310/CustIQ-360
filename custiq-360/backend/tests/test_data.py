@@ -29,7 +29,7 @@ def test_customers_json_exists():
 
 
 def test_total_customer_count(customers):
-    assert len(customers) == 90, f"Expected 90 customers, got {len(customers)}"
+    assert len(customers) == 95, f"Expected 95 customers, got {len(customers)}"
 
 
 def test_all_records_parse_without_error(raw_customers):
@@ -49,7 +49,7 @@ def test_unique_customer_ids(customers):
 
 # ── Multi-country coverage ────────────────────────────────────────────────────
 
-EXPECTED_COUNTRIES = {"IN": 15, "SG": 10, "AE": 10, "GB": 10, "DE": 8,
+EXPECTED_COUNTRIES = {"IN": 17, "SG": 11, "AE": 11, "GB": 11, "DE": 8,
                        "JP": 8, "AU": 8, "MY": 6, "HK": 6, "SA": 5, "ZA": 4}
 
 def test_country_distribution(customers):
